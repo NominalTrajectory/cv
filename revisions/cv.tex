@@ -1,0 +1,165 @@
+\documentclass[10pt,a4paper]{article}
+
+%---------------------------------------------------------------------------------------
+% PACKAGES
+%---------------------------------------------------------------------------------------
+\usepackage[margin=1.5cm]{geometry}   % Manage page margins
+\usepackage{fontspec}                 % For loading custom/open-type fonts
+\usepackage{xcolor}                   % Custom colors
+\usepackage{graphicx}                 % For logos or icons (if you need them)
+\usepackage{fancyhdr}                 % For custom headers/footers
+\usepackage{hyperref}                 % For clickable URLs
+\usepackage{enumitem}                 % Better control over list spacing
+\setlist{nosep}                       % Remove extra space in lists
+\usepackage{parskip}                  % Handle paragraph spacing
+
+%---------------------------------------------------------------------------------------
+% FONTS
+%---------------------------------------------------------------------------------------
+% Example: futuristic headings with 'Orbitron' (Google Font) and 'Source Sans Pro' (Google Font).
+% Download the .ttf files (or install them system-wide) and specify the path below:
+%\setmainfont{Source Sans Pro}
+%\newfontfamily\headingfont{Orbitron}
+
+% For demonstration purposes, let's just use a system font that might be available.
+\setmainfont{Arial}
+\newfontfamily\headingfont{Arial Bold}
+
+%---------------------------------------------------------------------------------------
+% COLORS
+%---------------------------------------------------------------------------------------
+\definecolor{techBlue}{HTML}{0098A6}    % Example "tech-forward" color
+\definecolor{softGray}{HTML}{888888}    % Subtle gray for accent
+
+%---------------------------------------------------------------------------------------
+% HEADER & FOOTER SETUP
+%---------------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{} % clear all header/footer fields
+% Footer with Git commit revision at the right
+\fancyfoot[R]{\scriptsize \textcolor{softGray}{Revision: \texttt{YourGitShortHash}}}
+
+% No page numbering
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%---------------------------------------------------------------------------------------
+% SECTION STYLING
+%---------------------------------------------------------------------------------------
+\newcommand{\CVSection}[1]{%
+  \vspace{8pt}%
+  {\headingfont\textcolor{techBlue}{#1}}\\
+  \rule{\linewidth}{0.5pt}%
+  \vspace{4pt}%
+}
+
+%---------------------------------------------------------------------------------------
+% BEGIN DOCUMENT
+%---------------------------------------------------------------------------------------
+\begin{document}
+\small % Use a smaller font size to fit everything on one page
+
+%---------------------------------------------------------------------------------------
+% NAME AND CONTACT
+%---------------------------------------------------------------------------------------
+{\LARGE \headingfont Ivan Shishkalov} \\
+\vspace{4pt}
+\textcolor{softGray}{Rotterdam, NL \quad|\quad Posthoornstraat 11, 3011WD} \\
+\textcolor{softGray}{Email: \href{mailto:ivan@dualstacks.com}{ivan@dualstacks.com} 
+\quad|\quad Phone: +31\,6\,17793541} \\
+\textcolor{softGray}{WhatsApp: +31\,6\,17793541 \quad|\quad Telegram: +31\,6\,17793541} \\
+\textcolor{softGray}{\href{https://linkedin.com/in/ivxn-sh}{LinkedIn} \quad|\quad 
+\href{https://github.com/NominalTrajectory}{GitHub}} 
+
+%---------------------------------------------------------------------------------------
+% SUMMARY
+%---------------------------------------------------------------------------------------
+\CVSection{Summary}
+Strategic Software and Cloud Engineer with a strong focus on cloud-native technologies, AI, and developer experience. I love building simple and intuitive systems that solve complex problems that matter. Skilled in architecting scalable platforms that prioritize developer experience. 
+
+Aspiring leader driven by a belief in leading by example. Striving to empower teams and foster a culture of embracing tech innovation, ownership, and adaptability.
+
+Fractional CTO @ softwarevrienden.nl - building a developer-centric AI recruitment platform in the Netherlands.
+Owner @ dualstacks.com - experimenting with agentic AI use cases for productivity, cloud, and more.
+
+%---------------------------------------------------------------------------------------
+% EXPERIENCE
+%---------------------------------------------------------------------------------------
+\CVSection{Experience}
+
+% Software Vrienden
+{\headingfont Software Vrienden \hfill Fractional CTO (May 2023--Present)} \\
+\textit{Deventer, Netherlands} \\
+\textit{Driving the development of the developer-centric AI recruitment platform in the Netherlands, with a sole purpose - Happy Development for All.}
+\begin{itemize}[leftmargin=*]
+  \item Designed and launched a high-performance ETL platform processing 2--3M annual data points using Dagster, Kubernetes, and Python microservices, enabling advanced market analysis and AI-driven matching
+  \item Transformed recruitment matching by transitioning from keyword-based systems to a multi-stage AI pipeline with agentic workflows, NLP, and LLMs (OpenAI, Gemini), reducing false positives by 4x
+  \item Reduced infrastructure costs by 70\% through strategic cloud optimization and vendor management while scaling platform capabilities
+  \item Introduced a unique GitHub integration, reducing developer onboarding from 2 days to 10 minutes and creating an engaging, developer-centric job search experience
+  \item Built and mentored a remote team of 5 engineers
+\end{itemize}
+
+% Improvers (subsidiary of Essent)
+{\headingfont Improvers (subsidiary of Essent) \hfill Cloud Platform Owner, Product Owner (Jan 2024--Dec 2024)} \\
+\textit{Utrecht, Netherlands} \\
+\textit{Led cloud architecture and product development for a Dutch Salesforce alternative built by a subsidiary of Essent.}
+\begin{itemize}[leftmargin=*]
+  \item Modernized the stack and set up a robust self-service platform supporting 100+ microservices on AWS EKS and Lambda, cutting zero-to-production setup time from days to minutes
+  \item Led the transition from Salesforce to a custom-built in-house platform, taking it from initial concept to a fully functional MVP and growing it into a SaaS product with 200+ paying customers
+  \item Built foundational libraries and integrations, advocating for best practices like Conventional Commits, GitOps, and Privacy by Design
+\end{itemize}
+
+% Avisi Cloud
+{\headingfont Avisi Cloud \hfill Intern, then Software Engineer (Nov 2021--May 2023)} \\
+\textit{Arnhem, Netherlands} \\
+\textit{Automated billing for a Kubernetes platform with Stripe integration in 6 months; developed multi-cloud and multi-cluster networking and scheduling capabilities.}
+\begin{itemize}[leftmargin=*]
+  \item Within 6 months, implemented Stripe-integrated billing and self-service onboarding for an enterprise-grade managed Kubernetes platform, streamlining public launch readiness
+  \item Researched and developed advanced multi-cloud and multi-cluster platform capabilities focusing on networking and scheduling with Linkerd, Liqo, and NSM
+  \item Engaged with 100+ potential customers and partners at events like KubeCon, giving demos and securing interest in the platform
+\end{itemize}
+
+% TomTom
+{\headingfont TomTom \hfill Intern, then Associate Software Engineer (Jan 2019--Jan 2021)} \\
+\textit{Amsterdam, Netherlands} \\
+\textit{Contributed to modernizing change and release management processes, driving automation and visibility improvements for 2000+ engineers.}
+\begin{itemize}[leftmargin=*]
+  \item Automated release scheduling, reducing manual effort by 50\% and enabling Accelerate KPI tracking for 70+ applications
+  \item Streamlined external change announcements for key customers like Volkswagen, Daimler, and BMW Motorrad by automating customer portals in ServiceNow
+  \item Presented advancements to unit leadership and 50+ engineering teams, driving curiosity and adoption
+\end{itemize}
+
+%---------------------------------------------------------------------------------------
+% EDUCATION
+%---------------------------------------------------------------------------------------
+\CVSection{Education}
+{\headingfont Saxion University of Applied Sciences \hfill BSc Information \& Communication Technology (2017--2022)} \\
+\textit{Deventer, Netherlands} \\
+Specialized in Cloud Engineering with a strong focus on Developer Experience. Graduated with the best-in-class work (10/10) on Multicluster Kubernetes Architectures: Networking and Scheduling. GPA 3.8/4.0
+
+%---------------------------------------------------------------------------------------
+% SKILLS
+%---------------------------------------------------------------------------------------
+\CVSection{Skills}
+\textbf{Technical Skills:}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Programming:} Go, Python, Java (Android, Spring), JavaScript (Node.js, Angular)
+  \item \textbf{Cloud and Infrastructure:} AWS, GCP, Linode, OVH, Multicloud Platforms, Kubernetes \& CNCF Landscape
+  \item \textbf{Tools:} Terraform, Pulumi, CDK, Helm, ArgoCD, Kustomize
+  \item \textbf{CI/CD:} GitHub Actions, Jenkins, GitLab CI, ArgoCD, Gitea
+  \item \textbf{AI:} NLP, LLMs, RAG, Agentic Workflows (OpenAI Assistants API, Langchain, CrewAI)
+\end{itemize}
+
+\textbf{Soft Skills:}
+\begin{itemize}[leftmargin=*]
+  \item Scaling and mentoring remote/hybrid teams
+  \item Product roadmapping
+  \item Effective communication
+  \item Stakeholder management
+  \item Presenting and pitching
+\end{itemize}
+
+%---------------------------------------------------------------------------------------
+% END DOCUMENT
+%---------------------------------------------------------------------------------------
+\end{document}
