@@ -1,0 +1,49 @@
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\newfontfamily\manrope{Manrope}[
+    Path=fonts/,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Regular,
+    BoldItalicFont=*-Bold
+]
+\newfontfamily\manropelight{Manrope}[
+    Path=fonts/,
+    Extension=.ttf,
+    UprightFont=*-Light,
+    BoldFont=*-Regular,
+    ItalicFont=*-Light,
+    BoldItalicFont=*-Regular
+]
+\newfontfamily\helv{Helvetica Neue}[
+    Scale=0.9,
+    BoldFont=*-Bold
+]
+
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+\name{Ivan}{Shishkalov}
+\email{ivan@dualstacks.com}
+\mobile{+31617793541}
+\github{NominalTrajectory}
+\linkedin{ivxn-sh}
+% \medium{ivxn} Not active yet
+
+\colorlet{awesome}{awesome-emerald}
+
+\begin{document}
+
+\makecvheader
+
+\input{summary}
+\input{experience}
+\input{education}
+\input{skills}
+
+\makecvfooter
+  {\tiny \commitDate\space--\space\commitHash}
+  {}
+  {}
+
+\end{document}
