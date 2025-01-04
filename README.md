@@ -5,7 +5,7 @@
     <tr>
       <td>
         <a href="./dist/cv.pdf">
-          <img src="./dist/cv.png" width="300px" alt="CV Preview">
+          <img src="./dist/cv.png" width="600px" alt="CV Preview">
         </a>
       </td>
     </tr>
