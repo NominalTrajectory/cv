@@ -307,3 +307,6 @@ TSWLatexianTemp*
 #*Notes.bib
 
 Awesome-CV/
+
+# MacOS
+.DS_Store
