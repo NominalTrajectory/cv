@@ -6,6 +6,7 @@ BUILDDIR = dist
 
 # Main file
 CVFILE = cv
+LETTERFILE = introduction-letter
 
 # Git hash and date variables
 GITHASH := $(shell git rev-parse --short HEAD)
@@ -16,6 +17,9 @@ LATEXCMD   = xelatex
 LATEXFLAGS = -interaction=nonstopmode -halt-on-error -output-directory=../$(BUILDDIR) \
              -jobname=$(CVFILE) \
              '\newcommand{\commitDate}{$(GITDATE)}\newcommand{\commitHash}{$(GITHASH)}\input{$(CVFILE)}'
+LETTERFLAGS = -interaction=nonstopmode -halt-on-error -output-directory=../$(BUILDDIR) \
+              -jobname=$(LETTERFILE) \
+              '\newcommand{\commitDate}{$(GITDATE)}\newcommand{\commitHash}{$(GITHASH)}\input{$(LETTERFILE)}'
 
 # Gather all .tex files
 TEXFILES = $(wildcard $(SRCDIR)/*.tex) $(wildcard $(SRCDIR)/config/*.tex)
@@ -29,7 +33,7 @@ $(BUILDDIR):
 # ------------------------------------------------------------------------
 
 # "all" = produce PDF and PNG locally (requires xelatex & magick installed locally)
-all: $(BUILDDIR)/$(CVFILE).pdf $(BUILDDIR)/$(CVFILE).png
+all: $(BUILDDIR)/$(CVFILE).pdf $(BUILDDIR)/$(CVFILE).png $(BUILDDIR)/$(LETTERFILE).pdf $(BUILDDIR)/$(LETTERFILE).png
 
 # Build the PDF locally
 $(BUILDDIR)/$(CVFILE).pdf: $(TEXFILES) | $(BUILDDIR)
@@ -92,4 +96,16 @@ docker-run: docker-build
 # Convenience target: build+run in one go
 docker-all: docker-build docker-run
 
-.PHONY: all watch open clean cleanall docker-build docker-run docker-all
+# Add new targets for the letter
+letter: $(BUILDDIR)/$(LETTERFILE).pdf
+
+$(BUILDDIR)/$(LETTERFILE).pdf: $(TEXFILES) | $(BUILDDIR)
+	cd $(SRCDIR) && $(LATEXCMD) $(LETTERFLAGS) $(LETTERFILE).tex
+	cd $(SRCDIR) && $(LATEXCMD) $(LETTERFLAGS) $(LETTERFILE).tex
+
+letter-png: $(BUILDDIR)/$(LETTERFILE).png
+
+$(BUILDDIR)/$(LETTERFILE).png: $(BUILDDIR)/$(LETTERFILE).pdf
+	@magick convert -density 300 $< -background white -alpha remove -alpha off -quality 100 $@
+
+.PHONY: all watch open clean cleanall docker-build docker-run docker-all letter letter-png

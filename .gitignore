@@ -310,3 +310,6 @@ Awesome-CV/
 
 # MacOS
 .DS_Store
+
+dist/introduction-letter.pdf
+src/introduction-letter.tex
