@@ -5,32 +5,66 @@
     Extension=.ttf,
     UprightFont=*-Regular,
     BoldFont=*-Bold,
-    ItalicFont=*-Regular,
-    BoldItalicFont=*-Bold
+    AutoFakeSlant,
+    Ligatures=TeX
 ]
 \newfontfamily\manropelight{Manrope}[
     Path=fonts/,
     Extension=.ttf,
     UprightFont=*-Light,
     BoldFont=*-Regular,
-    ItalicFont=*-Light,
-    BoldItalicFont=*-Regular
-]
-\newfontfamily\helv{Helvetica Neue}[
-    Scale=0.9,
-    BoldFont=*-Bold
+    AutoFakeSlant,
+    Ligatures=TeX
 ]
 
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\renewcommand{\headerfont}{\manrope}
+\renewcommand{\headerfontlight}{\manropelight}
+\renewcommand{\footerfont}{\manrope}
+\renewcommand{\bodyfont}{\manrope}
+\renewcommand{\bodyfontlight}{\manropelight}
 
-\name{Ivan}{Shishkalov}
-\email{ivan@dualstacks.com}
+\geometry{left=1.2cm, top=.6cm, right=1.2cm, bottom=.6cm, footskip=.42cm}
+
+\name{Iven}{Shishkalov}
+\address{Groningen, NL}
+\email{iven@t3sh.com}
 \mobile{+31617793541}
+\homepage{ivxn.sh}
 \github{NominalTrajectory}
-\linkedin{ivxn-sh}
 % \medium{ivxn} Not active yet
 
+\hypersetup{
+  pdftitle={CV - Iven Shishkalov},
+  pdfauthor={Iven Shishkalov},
+  pdfsubject={Curriculum Vitae},
+  pdfkeywords={CV, Cloud Engineering, Kubernetes, CTO}
+}
+
 \colorlet{awesome}{awesome-emerald}
+
+% Refined layout to balance readability and page usage
+\renewcommand{\acvHeaderAfterSocialSkip}{4mm}
+\renewcommand{\acvSectionTopSkip}{1.5mm}
+\renewcommand{\acvSectionContentTopSkip}{1.2mm}
+\renewenvironment{cvparagraph}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \paragraphstyle
+}{%
+  \par
+  \vspace{1.2mm}
+}
+\renewenvironment{cvitems}{%
+  \vspace{-3mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=2.2ex, itemsep=0.25em, topsep=0.15em]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{-2.5mm}
+}
 
 \begin{document}
 

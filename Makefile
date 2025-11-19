@@ -6,7 +6,7 @@ BUILDDIR = dist
 
 # Main file
 CVFILE = cv
-LETTERFILE = introduction-letter
+
 
 # Git hash and date variables
 GITHASH := $(shell git rev-parse --short HEAD)
@@ -17,12 +17,10 @@ LATEXCMD   = xelatex
 LATEXFLAGS = -interaction=nonstopmode -halt-on-error -output-directory=../$(BUILDDIR) \
              -jobname=$(CVFILE) \
              '\newcommand{\commitDate}{$(GITDATE)}\newcommand{\commitHash}{$(GITHASH)}\input{$(CVFILE)}'
-LETTERFLAGS = -interaction=nonstopmode -halt-on-error -output-directory=../$(BUILDDIR) \
-              -jobname=$(LETTERFILE) \
-              '\newcommand{\commitDate}{$(GITDATE)}\newcommand{\commitHash}{$(GITHASH)}\input{$(LETTERFILE)}'
 
-# Gather all .tex files
-TEXFILES = $(wildcard $(SRCDIR)/*.tex) $(wildcard $(SRCDIR)/config/*.tex)
+
+# Gather all .tex files and the .cls file
+TEXFILES = $(wildcard $(SRCDIR)/*.tex) $(wildcard $(SRCDIR)/config/*.tex) $(SRCDIR)/awesome-cv.cls
 
 # Ensure build directory exists
 $(BUILDDIR):
@@ -33,7 +31,7 @@ $(BUILDDIR):
 # ------------------------------------------------------------------------
 
 # "all" = produce PDF and PNG locally (requires xelatex & magick installed locally)
-all: $(BUILDDIR)/$(CVFILE).pdf $(BUILDDIR)/$(CVFILE).png $(BUILDDIR)/$(LETTERFILE).pdf $(BUILDDIR)/$(LETTERFILE).png
+all: $(BUILDDIR)/$(CVFILE).pdf $(BUILDDIR)/$(CVFILE).png
 
 # Build the PDF locally
 $(BUILDDIR)/$(CVFILE).pdf: $(TEXFILES) | $(BUILDDIR)
@@ -52,6 +50,21 @@ watch:
 # Open PDF on macOS
 open: all
 	open $(BUILDDIR)/$(CVFILE).pdf
+
+# Preview CV with live reload (requires fswatch: brew install fswatch)
+# Opens PDF in Preview.app which auto-refreshes on file changes
+preview:
+	@echo "Building and opening CV..."
+	@$(MAKE) all
+	@open $(BUILDDIR)/$(CVFILE).pdf
+	@echo "👁️  Watching for changes in $(SRCDIR)... (Press Ctrl+C to stop)"
+	@echo "Tip: Keep Preview.app open - it will auto-refresh on changes"
+	@fswatch -o $(SRCDIR) | while read; do \
+		echo "🔄 Changes detected, rebuilding..."; \
+		$(MAKE) all; \
+	done
+
+
 
 # Clean intermediate build files
 clean:
@@ -96,16 +109,6 @@ docker-run: docker-build
 # Convenience target: build+run in one go
 docker-all: docker-build docker-run
 
-# Add new targets for the letter
-letter: $(BUILDDIR)/$(LETTERFILE).pdf
 
-$(BUILDDIR)/$(LETTERFILE).pdf: $(TEXFILES) | $(BUILDDIR)
-	cd $(SRCDIR) && $(LATEXCMD) $(LETTERFLAGS) $(LETTERFILE).tex
-	cd $(SRCDIR) && $(LATEXCMD) $(LETTERFLAGS) $(LETTERFILE).tex
 
-letter-png: $(BUILDDIR)/$(LETTERFILE).png
-
-$(BUILDDIR)/$(LETTERFILE).png: $(BUILDDIR)/$(LETTERFILE).pdf
-	@magick convert -density 300 $< -background white -alpha remove -alpha off -quality 100 $@
-
-.PHONY: all watch open clean cleanall docker-build docker-run docker-all letter letter-png
+.PHONY: all watch open preview clean cleanall docker-build docker-run docker-all

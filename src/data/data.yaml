@@ -1,8 +1,8 @@
 personal:
-  first_name: 'Ivan'
+  first_name: 'Iven'
   last_name: 'Shishkalov'
   contact:
-    email: 'ivan@dualstacks.com'
+    email: 'iven@t3sh.com'
     phone: '+31617793541'
   social:
     linkedin: 'https://linkedin.com/in/ivxn-sh'
@@ -12,12 +12,12 @@ resume:
   summary: |
     Strategic Software and Cloud Engineer with a strong focus on cloud-native technologies, AI, and developer experience. I love building simple and intuitive systems that solve complex problems that matter. Skilled in architecting scalable platforms that prioritize developer experience. 
     Aspiring leader driven by a belief in leading by example. Striving to empower teams and foster a culture of embracing tech innovation, ownership, and adaptability.
-    Fractional CTO @ softwarevrienden.nl - building a developer-centric AI recruitment platform in the Netherlands.
-    Owner @ dualstacks.com - experimenting with agentic AI use cases for productivity, cloud, and more.
+    CTO @ softwarevrienden.nl - building a developer-centric AI recruitment platform in the Netherlands.
+    Owner @ t3sh.com - experimenting with agentic AI use cases for productivity, cloud, and more.
 
   work:
     - company: 'Software Vrienden'
-      role: 'Fractional CTO'
+      role: 'CTO'
       start_date: '2023-05-01'
       end_date: 'present'
       place: 'Deventer, Netherlands'
