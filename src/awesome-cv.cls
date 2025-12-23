@@ -92,6 +92,8 @@
 }
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
+% Accessible text replacement (improves ATS/screen-reader extraction for icons)
+\RequirePackage{accsupp}
 % Load custom fonts
 
 %-------------------------------------------------------------------------------
@@ -188,7 +190,7 @@
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\headerfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{darktext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
@@ -315,6 +317,10 @@
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
 
+% Defines writer's X profile (optional)
+% Usage: \xprofile{<x handle>}
+\newcommand*{\xprofile}[1]{\def\@xprofile{#1}}
+
 % Defines writer's Mastodon (optional)
 % Usage: \mastodon{<instance>}{<mastodon-nick>}
 \newcommand*{\mastodon}[2]{\def\@mastodoninstance{#1}\def\@mastodonname{#2}}
@@ -415,7 +421,35 @@
 \newcommand{\acvHeaderAfterAddressSkip}{-.5mm}
 \newcommand{\acvHeaderIconSep}{\space}
 \newcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
-\newcommand{\acvHeaderTextIcon}[1]{\textsc{#1}:}
+\newcommand{\acvHeaderXIcon}{\raisebox{0.15ex}{\scalebox{1.05}{\textbf{X}}}}
+\newcommand{\acvHeaderTextIcon}[1]{%
+  \BeginAccSupp{method=pdfstringdef,ActualText={#1:}}%
+    \IfStrEqCase{#1}{%
+      {Email}{\faIcon{envelope}}%
+      {Phone}{\faIcon{phone}}%
+      {Location}{\faIcon{map-marker-alt}}%
+      {DOB}{\faIcon{calendar-alt}}%
+      {Website}{\faIcon{globe}}%
+      {GitHub}{\faIcon{github}}%
+      {GitLab}{\faIcon{gitlab}}%
+      {Bitbucket}{\faIcon{bitbucket}}%
+      {Stack Overflow}{\faIcon{stack-overflow}}%
+      {LinkedIn}{\faIcon{linkedin-in}}%
+      {ORCID}{\faIcon{orcid}}%
+      {Twitter}{\faIcon{twitter}}%
+      {X}{\acvHeaderXIcon}%
+      {Mastodon}{\faIcon{mastodon}}%
+      {Skype}{\faIcon{skype}}%
+      {Reddit}{\faIcon{reddit-alien}}%
+      {ResearchGate}{\faIcon{researchgate}}%
+      {Xing}{\faIcon{xing}}%
+      {Medium}{\faIcon{medium}}%
+      {Kaggle}{\faIcon{kaggle}}%
+      {HackerRank}{\faIcon{hackerrank}}%
+      {Google Scholar}{\faIcon{graduation-cap}}%
+    }[\textsc{#1}:]%
+  \EndAccSupp{}%
+}
 \newcommand{\acvHeaderAfterSocialSkip}{6mm}
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
@@ -605,6 +639,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://scholar.google.com/citations?user=\@googlescholarid}{\acvHeaderTextIcon{Google Scholar}\acvHeaderIconSep\@googlescholarname}%
+        }%
+      \ifthenelse{\isundefined{\@xprofile}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://x.com/\@xprofile}{\acvHeaderTextIcon{X}\acvHeaderIconSep\@xprofile}%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%

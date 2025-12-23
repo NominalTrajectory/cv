@@ -66,6 +66,59 @@ preview:
 
 
 
+# ------------------------------------------------------------------------
+# 3) COVER LETTER TARGETS
+# ------------------------------------------------------------------------
+
+COVERDIR = cover-letters
+
+# Build a specific cover letter (interactive selection)
+cover-letter:
+	@if [ ! -d "$(COVERDIR)" ] || [ -z "$$(ls -A $(COVERDIR)/*.tex 2>/dev/null)" ]; then \
+		echo "No cover letters found in $(COVERDIR)/"; \
+		exit 1; \
+	fi
+	@echo "Available cover letters:"
+	@i=1; for f in $(COVERDIR)/*.tex; do \
+		name=$$(basename "$$f" .tex); \
+		echo "  $$i) $$name"; \
+		i=$$((i + 1)); \
+	done
+	@read -p "Select letter number: " num; \
+	i=1; for f in $(COVERDIR)/*.tex; do \
+		if [ $$i -eq $$num ]; then \
+			name=$$(basename "$$f" .tex); \
+			echo "Building $$name..."; \
+			mkdir -p $(BUILDDIR); \
+			cd $(SRCDIR) && $(LATEXCMD) -interaction=nonstopmode -halt-on-error \
+				-output-directory=../$(BUILDDIR) \
+				-jobname=cover_letter_$$name \
+				"\newcommand{\commitDate}{$(GITDATE)}\newcommand{\commitHash}{$(GITHASH)}\input{../$(COVERDIR)/$$name}"; \
+			echo "Output: $(BUILDDIR)/cover_letter_$$name.pdf"; \
+			exit 0; \
+		fi; \
+		i=$$((i + 1)); \
+	done; \
+	echo "Invalid selection"; exit 1
+
+# Build a specific cover letter by name: make cover-letter-playstation
+cover-letter-%:
+	@if [ ! -f "$(COVERDIR)/$*.tex" ]; then \
+		echo "Cover letter not found: $(COVERDIR)/$*.tex"; \
+		exit 1; \
+	fi
+	@mkdir -p $(BUILDDIR)
+	@echo "Building $*..."
+	@cd $(SRCDIR) && $(LATEXCMD) -interaction=nonstopmode -halt-on-error \
+		-output-directory=../$(BUILDDIR) \
+		-jobname=cover_letter_$* \
+		"\newcommand{\commitDate}{$(GITDATE)}\newcommand{\commitHash}{$(GITHASH)}\input{../$(COVERDIR)/$*}"
+	@echo "Output: $(BUILDDIR)/cover_letter_$*.pdf"
+
+# ------------------------------------------------------------------------
+# 4) CLEANUP
+# ------------------------------------------------------------------------
+
 # Clean intermediate build files
 clean:
 	@rm -rf $(BUILDDIR)
@@ -111,4 +164,4 @@ docker-all: docker-build docker-run
 
 
 
-.PHONY: all watch open preview clean cleanall docker-build docker-run docker-all
+.PHONY: all watch open preview clean cleanall docker-build docker-run docker-all cover-letter
