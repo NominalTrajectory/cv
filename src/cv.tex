@@ -1,0 +1,110 @@
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\newfontfamily\manrope{Manrope}[
+    Path=fonts/,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    AutoFakeSlant,
+    Ligatures=TeX
+]
+\newfontfamily\manropelight{Manrope}[
+    Path=fonts/,
+    Extension=.ttf,
+    UprightFont=*-Light,
+    BoldFont=*-Regular,
+    AutoFakeSlant,
+    Ligatures=TeX
+]
+
+\newfontfamily\ibmplexsans{IBMPlexSans}[
+    Path=fonts/,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    AutoFakeSlant,
+    Ligatures=TeX
+]
+\newfontfamily\ibmplexsanslight{IBMPlexSans}[
+    Path=fonts/,
+    Extension=.ttf,
+    UprightFont=*-Light,
+    BoldFont=*-Regular,
+    ItalicFont=*-Italic,
+    AutoFakeSlant,
+    Ligatures=TeX
+]
+
+\renewcommand{\headerfont}{\manrope}
+\renewcommand{\headerfontlight}{\manropelight}
+\renewcommand{\footerfont}{\ibmplexsans}
+\renewcommand{\bodyfont}{\ibmplexsans}
+\renewcommand{\bodyfontlight}{\ibmplexsans}
+
+\geometry{left=1.2cm, top=.6cm, right=1.2cm, bottom=.6cm, footskip=.42cm}
+
+\name{Iven}{Shishkalov}
+\position{Software Architect, Platform Engineer (Cloud, AI)}
+\address{Netherlands}
+\email{i@ivxn.sh}
+\mobile{+31 6 1779 3541}
+\homepage{ivxn.sh}
+\github{NominalTrajectory}
+\xprofile{ivxn\_sh}
+% \medium{ivxn} Not active yet
+
+\hypersetup{
+  pdftitle={CV - Iven Shishkalov},
+  pdfauthor={Iven Shishkalov},
+  pdfsubject={Curriculum Vitae},
+  pdfkeywords={CV, Cloud Engineering, Kubernetes, CTO}
+}
+
+\definecolor{awesome}{HTML}{E3020F}
+
+\renewcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{text} #1}}
+
+% Make company/school names in entries a touch more prominent/readable.
+% (In this template they are rendered via \entrypositionstyle.)
+\renewcommand*{\entrypositionstyle}[1]{{\fontsize{9.8pt}{1.1em}\bodyfont\mdseries\color{text} #1}}
+
+% Refined layout to balance readability and page usage
+\renewcommand{\acvHeaderAfterSocialSkip}{2mm}
+\renewcommand{\acvSectionTopSkip}{1mm}
+\renewcommand{\acvSectionContentTopSkip}{0.8mm}
+\renewenvironment{cvparagraph}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \paragraphstyle
+}{%
+  \par
+  \vspace{0.5mm}
+}
+\renewenvironment{cvitems}{%
+  \vspace{-3mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=2.2ex, itemsep=0.25em, topsep=0.15em]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{-2.5mm}
+}
+
+\begin{document}
+
+\makecvheader
+
+\input{summary}
+\input{experience}
+\input{education}
+\input{skills}
+
+\makecvfooter
+  {\tiny \commitDate\space--\space\commitHash}
+  {}
+  {}
+
+\end{document}

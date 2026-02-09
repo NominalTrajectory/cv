@@ -1,0 +1,82 @@
+personal:
+  first_name: 'Iven'
+  last_name: 'Shishkalov'
+  contact:
+    email: 'i@ivxn.sh'
+    phone: '+31617793541'
+  social:
+    linkedin: 'https://linkedin.com/in/ivxn-sh'
+    github: 'https://github.com/NominalTrajectory'
+
+resume:
+  summary: |
+    Strategic Software and Cloud Engineer with a strong focus on cloud-native technologies, AI, and developer experience. I love building simple and intuitive systems that solve complex problems that matter. Skilled in architecting scalable platforms that prioritize developer experience. 
+    Aspiring leader driven by a belief in leading by example. Striving to empower teams and foster a culture of embracing tech innovation, ownership, and adaptability.
+    CTO @ softwarevrienden.nl - building a developer-centric AI recruitment platform in the Netherlands.
+    Owner @ t3sh.com - experimenting with agentic AI use cases for productivity, cloud, and more.
+
+  work:
+    - company: 'Software Vrienden'
+      role: 'CTO'
+      start_date: '2023-05-01'
+      end_date: 'present'
+      place: 'Deventer, Netherlands'
+      summary: 'Driving the development of the developer-centric AI recruitment platform in the Netherlands, with a sole purpose - Happy Development for All.'
+      highlights:
+        - Designed and launched a high-performance ETL platform processing 2-3M annual data points using Dagster, Kubernetes, and Python microservices, enabling advanced market analysis and AI-driven matching
+        - Transformed recruitment matching by transitioning from keyword-based systems to a multi-stage AI pipeline with agentic workflows, NLP, and LLMs (OpenAI, Gemini), reducing false positives by 4x through semantic analysis of skills, project complexity, and career trajectory
+        - Reduced infrastructure costs by 70% through strategic cloud optimization and vendor management while scaling platform capabilities
+        - Introduced a unique GitHub integration, reducing developer onboarding from 2 days to 10 minutes and creating an engaging, developer-centric job search experience
+        - Built and mentored a remote team of 5 engineers
+
+    - company: 'Improvers (subsidiary of Essent)'
+      role: 'Cloud Platform Owner, Product Owner'
+      start_date: '2024-01-01'
+      end_date: '2024-12-31'
+      place: 'Utrecht, Netherlands'
+      summary: 'Led cloud architecture and product development for a Dutch Salesforce alternative built by a subsidiary of Essent.'
+      highlights:
+        - Modernized the stack and set up a robust self-service platform supporting 100+ microservices on AWS EKS and Lambda, cutting zero-to-production setup time from days to minutes
+        - Led the transition from Salesforce to a custom-built in-house platform, taking it from initial concept to a fully functional MVP and evolving it into a SaaS product with 200+ paying customers
+        - Built foundational libraries and integrations, advocating for best practices like Conventional Commits, GitOps, and Privacy by Design, and mentoring engineers to enhance Developer Experience
+
+    - company: 'Avisi Cloud'
+      role: 'Intern, then Software Engineer'
+      start_date: '2021-11-01'
+      end_date: '2023-05-01'
+      place: 'Arnhem, Netherlands'
+      summary: 'Automated billing for a Kubernetes platform with Stripe integration in 6 months; developed multi-cloud and multi-cluster networking and scheduling capabilities.'
+      highlights:
+        - Within 6 months, implemented Stripe-integrated billing and self-service onboarding for an enterprise-grade managed Kubernetes platform, streamlining public launch readiness
+        - Researched and developed advanced multi-cloud and multi-cluster platform capabilities focusing on networking and scheduling, delivering reference architectures and proof-of-concepts with Linkerd, Liqo, and NSM
+        - Engaged with 100+ potential customers and partners at events like KubeCon, giving demos and securing interest in the platform
+
+    - company: 'TomTom'
+      role: 'Intern, then Associate Software Engineer'
+      start_date: '2019-01-01'
+      end_date: '2021-01-01'
+      place: 'Amsterdam, Netherlands'
+      summary: 'Contributed to modernizing change and release management processes, driving automation and visibility improvements for 2000+ engineers.'
+      highlights:
+        - Automated release scheduling, reducing manual effort by 50% and enabling Accelerate KPI tracking for 70+ applications, supporting the CTO's DevOps transition goals
+        - Streamlined external change announcements for key customers like Volkswagen, Daimler, and BMW Motorrad by automating customer portals in ServiceNow
+        - Presented advancements to unit leadership and 50+ engineering teams, driving curiosity and adoption
+
+  education:
+    - institution: 'Saxion University of Applied Sciences'
+      place: 'Deventer, Netherlands'
+      area: 'Information & Communication Technology'
+      study_type: 'BSc Information & Communication Technology'
+      start_date: '2017'
+      end_date: '2022'
+      summary: 'Specialized in Cloud Engineering with a strong focus on Developer Experience. Graduated with the best-in-class work (10/10) on Multicluster Kubernetes Architectures: Networking and Scheduling. GPA 3.8/4.0'
+
+  skills:
+    technical_skills:
+      programming: Go, Python, Java (Android, Spring), JavaScript (Node.js, Angular)
+      cloud_and_infrastructure: AWS, GCP, Linode, OVH, Multicloud Platforms, Kubernetes and CNCF Landscape
+      tools: Terraform, Pulumi, CDK, Helm, ArgoCD, Kustomize
+      ci_cd: Github Actions, Jenkins, Gitlab CI, ArgoCD, Gitea
+      ai: NLP, LLMs, RAG, Agentic Workflows (OpenAI Assistants API, Langchain, CrewAI)
+    
+    soft_skills: scaling and mentoring remote/hybrid teams, product roadmapping, effective communication, stakeholder management, presenting and pitching
