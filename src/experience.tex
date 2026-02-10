@@ -2,6 +2,20 @@
 
 \begin{cventries}
   \cventry
+    {\href{https://en.wikipedia.org/wiki/Stealth_startup}{Stealth Healthtech Startup}}
+    {Technical Co-Founder}
+    {Aug 2025 - Present}
+    {UK}
+    {
+      \begin{cvitems}
+        \item {Built a multi-step ingestion pipeline for a knowledge corpus made of research papers, expert Q\&A recordings, and articles. Transcription, cleaning, LLM-as-a-judge relevance scoring, chunking, hybrid retrieval using Qdrant}
+        \item {Implemented agent memory and context manager beyond RAG: KG, sleep-time compute for between-session reasoning, re-anchoring of critical context, agent durability with Temporal, guardrails on a finetuned safety classifier, evals with deepeval}
+        \item {Designed a PII de-identification layer that uses generalization, pseudonymization with identity domain separation, per-user crypto shredding (data irrecoverable even in backups), ensuring compliance with GDPR and EU AI Act}
+        \item {Shipped a real-time voice agent (Livekit, ElevenLabs) optimized for low latency end-to-end, React/Next.js PWA; self-hosted Kubernetes, autoscaling with KEDA}
+      \end{cvitems}
+    }
+
+  \cventry
     {\href{https://softwarevrienden.nl}{Software Vrienden}}
     {Founding Engineer, CTO}
     {May 2023 - Oct 2025}
@@ -24,8 +38,8 @@
     {
       \begin{cvitems}
         \item {Owned the technical roadmap to productize an internal Salesforce-wrapper tool into a SaaS for 200+ paying customers}
-        \item {Built a self-service cloud platform from zero on AWS (EKS/Lambda) for 100+ microservices, taking zero-to-prod from days to minutes}
-        \item {Implemented cost/performance improvements (autoscaling, spot strategy, rightsizing) cutting AWS spend by ~60\% while keeping delivery speed high}
+        \item {Built a self-service platform from zero on AWS (EKS/Lambda) for 100+ microservices, taking zero-to-prod from days to minutes}
+        \item {Implemented cost/performance improvements (autoscaling, spot strategy, rightsizing), cutting AWS spend by ~60\% while keeping delivery speed high}
         \item {Embedded privacy-by-design and security guardrails into CI/CD (wrote a custom Jenkins lib for safe-defaults, secret injection, auditability), and coached dev teams}
       \end{cvitems}
     }
@@ -40,19 +54,17 @@
         \item {Took ownership of the billing \& self-service layers to launch an enterprise-grade managed Kubernetes PaaS in 6 months}
         \item {Built the usage-based billing engine from scratch, public (REST) and internal (gRPC) APIs with Go, Java, NATS, Stripe}
         \item {Built the self-service flow (Angular, Spring) and personally demoed at KubeCon booth, securing the first 30+ signups}
-        \item {Prototyped advanced multicloud \& multi-cluster setups (networking, scheduling) on the K8s platform with Linkerd, Liqo, NSM}
       \end{cvitems}
     }
 
   \cventry
     {\href{https://tomtom.com}{TomTom}}
-    {Associate Software Engineer - Change \& Release Management}
+    {Associate Software Engineer}
     {Jan 2019 - Jan 2021}
     {Amsterdam, NL}
     {
       \begin{cvitems}
-        \item {Built a release scheduler app (Node.js, Angular) that cut manual release coordination effort by 50\% across 20+ engineering teams; integrated DORA (Accelerate KPIs) metrics tracking for 70+ applications}
-        \item {Built automations in ServiceNow to manage change announcements for key enterprise customers (Volkswagen, Daimler, BMW), improving communication speed and accuracy}
+        \item {Built release tooling (Node.js, Angular) and automations that cut coordination effort by 50\% across 20+ engineering teams}
       \end{cvitems}
     }
 \end{cventries}

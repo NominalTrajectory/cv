@@ -92,6 +92,18 @@
   \end{justify}
   \vspace{-2.5mm}
 }
+\renewenvironment{cvskills}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-3mm}
+  \begin{center}
+    \setlength\tabcolsep{0.4ex}
+    \setlength{\extrarowheight}{-2pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r @{\hspace{1em}} >{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{\textwidth - 3.2cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+  \vspace{-3mm}
+}
 
 \begin{document}
 
