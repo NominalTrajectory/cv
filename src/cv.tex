@@ -42,10 +42,10 @@
 \renewcommand{\bodyfont}{\ibmplexsans}
 \renewcommand{\bodyfontlight}{\ibmplexsans}
 
-\geometry{left=1.2cm, top=.6cm, right=1.2cm, bottom=.6cm, footskip=.42cm}
+\geometry{left=1.2cm, top=.8cm, right=1.2cm, bottom=1cm, footskip=.5cm}
 
 \name{Iven}{Shishkalov}
-\position{Software Architect, Platform Engineer (Cloud, AI)}
+\position{Software \& Cloud Engineer (Distributed infra, multi-cloud)}
 \address{Netherlands}
 \email{i@ivxn.sh}
 \mobile{+31 6 1779 3541}
@@ -63,15 +63,20 @@
 
 \definecolor{awesome}{HTML}{E3020F}
 
-\renewcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{text} #1}}
+% No \scshape: IBM Plex Sans has no small caps (it fell back with a font warning)
+\renewcommand*{\headerpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{text} #1}}
+\renewcommand*{\headersocialstyle}[1]{{\fontsize{7.6pt}{1em}\headerfont\color{text} #1}}
+\renewcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\color{lighttext} #1}}
 
 % Make company/school names in entries a touch more prominent/readable.
 % (In this template they are rendered via \entrypositionstyle.)
 \renewcommand*{\entrypositionstyle}[1]{{\fontsize{9.8pt}{1.1em}\bodyfont\mdseries\color{text} #1}}
 
 % Refined layout to balance readability and page usage
+\renewcommand{\acvHeaderAfterNameSkip}{1.2mm}
+\renewcommand{\acvHeaderAfterPositionSkip}{.8mm}
 \renewcommand{\acvHeaderAfterSocialSkip}{2mm}
-\renewcommand{\acvSectionTopSkip}{1mm}
+\renewcommand{\acvSectionTopSkip}{0.3mm}
 \renewcommand{\acvSectionContentTopSkip}{0.8mm}
 \renewenvironment{cvparagraph}{%
   \vspace{\acvSectionContentTopSkip}
@@ -79,22 +84,22 @@
   \paragraphstyle
 }{%
   \par
-  \vspace{0.5mm}
+  \vspace{1.9mm}
 }
 \renewenvironment{cvitems}{%
-  \vspace{-3mm}
+  \vspace{-3.8mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2.2ex, itemsep=0.25em, topsep=0.15em]
+  \begin{itemize}[leftmargin=2.2ex, itemsep=0.12em, topsep=0.15em]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-2.5mm}
+  \vspace{-3.5mm}
 }
 \renewenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
+  \vspace{-1.2mm}
   \begin{center}
     \setlength\tabcolsep{0.4ex}
     \setlength{\extrarowheight}{-2pt}
@@ -103,6 +108,15 @@
     \end{tabular*}
   \end{center}
   \vspace{-3mm}
+}
+
+% Fixed title box (height of "l", no depth) so the gap under the rule doesn't
+% depend on descenders; the trailing % stops a stray space shortening the rule
+\renewcommand{\cvsection}[1]{%
+  \vspace{\acvSectionTopSkip}
+  \raisebox{0pt}[\height][0pt]{\sectionstyle{#1\vphantom{l}}}
+  \phantomsection
+  \color{sectiondivider}\vhrulefill{0.9pt}%
 }
 
 \begin{document}
