@@ -116,6 +116,34 @@ cover-letter-%:
 	@echo "Output: $(BUILDDIR)/cover_letter_$*.pdf"
 
 # ------------------------------------------------------------------------
+# 5) PRIVATE CV VARIANTS
+# ------------------------------------------------------------------------
+
+VARIANTDIR = variants
+
+# Build a private CV variant by name: make variant-<name>
+# Source: src/variants/<name>/cv.tex (gitignored), output: dist/cv-<name>.pdf
+variant-%:
+	@if [ ! -f "$(SRCDIR)/$(VARIANTDIR)/$*/cv.tex" ]; then \
+		echo "Variant not found: $(SRCDIR)/$(VARIANTDIR)/$*/cv.tex"; \
+		exit 1; \
+	fi
+	@mkdir -p $(BUILDDIR)
+	@echo "Building variant $*..."
+	@cd $(SRCDIR) && for pass in 1 2; do \
+		$(LATEXCMD) -interaction=nonstopmode -halt-on-error \
+			-output-directory=../$(BUILDDIR) \
+			-jobname=cv-$* \
+			'\newcommand{\commitDate}{$(GITDATE)}\newcommand{\commitHash}{$(GITHASH)}\input{$(VARIANTDIR)/$*/cv}' || exit 1; \
+	done
+	@echo "Output: $(BUILDDIR)/cv-$*.pdf"
+
+# Build a private CV variant and open it in Chrome: make open-<name>
+open-%:
+	@$(MAKE) --no-print-directory variant-$*
+	@open -a "Google Chrome" $(BUILDDIR)/cv-$*.pdf
+
+# ------------------------------------------------------------------------
 # 4) CLEANUP
 # ------------------------------------------------------------------------
 

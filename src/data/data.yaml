@@ -12,7 +12,7 @@ resume:
   summary: |
     Strategic Software and Cloud Engineer with a strong focus on cloud-native technologies, AI, and developer experience. I love building simple and intuitive systems that solve complex problems that matter. Skilled in architecting scalable platforms that prioritize developer experience. 
     Aspiring leader driven by a belief in leading by example. Striving to empower teams and foster a culture of embracing tech innovation, ownership, and adaptability.
-    CTO @ softwarevrienden.nl - building a developer-centric AI recruitment platform in the Netherlands.
+    CTO @ softwarevrienden.nl - building a developer-centric AI recruitment platform in NL.
     Owner @ t3sh.com - experimenting with agentic AI use cases for productivity, cloud, and more.
 
   work:
@@ -20,8 +20,8 @@ resume:
       role: 'CTO'
       start_date: '2023-05-01'
       end_date: 'present'
-      place: 'Deventer, Netherlands'
-      summary: 'Driving the development of the developer-centric AI recruitment platform in the Netherlands, with a sole purpose - Happy Development for All.'
+      place: 'Deventer, NL'
+      summary: 'Driving the development of the developer-centric AI recruitment platform in NL, with a sole purpose - Happy Development for All.'
       highlights:
         - Designed and launched a high-performance ETL platform processing 2-3M annual data points using Dagster, Kubernetes, and Python microservices, enabling advanced market analysis and AI-driven matching
         - Transformed recruitment matching by transitioning from keyword-based systems to a multi-stage AI pipeline with agentic workflows, NLP, and LLMs (OpenAI, Gemini), reducing false positives by 4x through semantic analysis of skills, project complexity, and career trajectory
@@ -33,7 +33,7 @@ resume:
       role: 'Cloud Platform Owner, Product Owner'
       start_date: '2024-01-01'
       end_date: '2024-12-31'
-      place: 'Utrecht, Netherlands'
+      place: 'Utrecht, NL'
       summary: 'Led cloud architecture and product development for a Dutch Salesforce alternative built by a subsidiary of Essent.'
       highlights:
         - Modernized the stack and set up a robust self-service platform supporting 100+ microservices on AWS EKS and Lambda, cutting zero-to-production setup time from days to minutes
@@ -44,7 +44,7 @@ resume:
       role: 'Intern, then Software Engineer'
       start_date: '2021-11-01'
       end_date: '2023-05-01'
-      place: 'Arnhem, Netherlands'
+      place: 'Arnhem, NL'
       summary: 'Automated billing for a Kubernetes platform with Stripe integration in 6 months; developed multi-cloud and multi-cluster networking and scheduling capabilities.'
       highlights:
         - Within 6 months, implemented Stripe-integrated billing and self-service onboarding for an enterprise-grade managed Kubernetes platform, streamlining public launch readiness
@@ -55,7 +55,7 @@ resume:
       role: 'Intern, then Associate Software Engineer'
       start_date: '2019-01-01'
       end_date: '2021-01-01'
-      place: 'Amsterdam, Netherlands'
+      place: 'Amsterdam, NL'
       summary: 'Contributed to modernizing change and release management processes, driving automation and visibility improvements for 2000+ engineers.'
       highlights:
         - Automated release scheduling, reducing manual effort by 50% and enabling Accelerate KPI tracking for 70+ applications, supporting the CTO's DevOps transition goals
@@ -64,7 +64,7 @@ resume:
 
   education:
     - institution: 'Saxion University of Applied Sciences'
-      place: 'Deventer, Netherlands'
+      place: 'Deventer, NL'
       area: 'Information & Communication Technology'
       study_type: 'BSc Information & Communication Technology'
       start_date: '2017'
@@ -74,7 +74,7 @@ resume:
   skills:
     technical_skills:
       programming: Go, Python, Java (Android, Spring), JavaScript (Node.js, Angular)
-      cloud_and_infrastructure: AWS, GCP, Linode, OVH, Multicloud Platforms, Kubernetes and CNCF Landscape
+      cloud_and_infrastructure: AWS, GCP, Linode, OVH, multi-cloud Platforms, Kubernetes and CNCF Landscape
       tools: Terraform, Pulumi, CDK, Helm, ArgoCD, Kustomize
       ci_cd: Github Actions, Jenkins, Gitlab CI, ArgoCD, Gitea
       ai: NLP, LLMs, RAG, Agentic Workflows (OpenAI Assistants API, Langchain, CrewAI)
